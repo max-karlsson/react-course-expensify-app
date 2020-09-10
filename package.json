@@ -9,7 +9,7 @@
     "build:prod": "webpack -p --env production",
     "dev-server": "webpack-dev-server",
     "test": "jest --config=jest.config.json",
-    "start": "noe server/server.js",
+    "start": "node server/server.js",
     "heroku-post-postbuild": "yarn run build:prod"
   },
   "dependencies": {
