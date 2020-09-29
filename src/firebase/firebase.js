@@ -32,32 +32,32 @@ export { firebase, database as default };
 //   console.log(snapshot.key, snapshot.val());
 // });
 
-// database.ref('expenses')
-//   .once('value')
-//   .then((snapshot) => {
-//     console.log(updateExpenses(snapshot));
-//   });
+database.ref('expenses')
+  .once('value')
+  .then((snapshot) => {
+    console.log(updateExpenses(snapshot));
+  });
 
-//   database.ref('expenses')
-//     .on('value', (snapshot) => {
-//       console.log(updateExpenses(snapshot));
-//     }, (error) => {
-//       console.log(error)
-//     });
+  database.ref('expenses')
+    .on('value', (snapshot) => {
+      console.log(updateExpenses(snapshot));
+    }, (error) => {
+      console.log(error)
+    });
 
-// const updateExpenses = (snapshot) => {
-//   const expenses = [];
-//   snapshot.forEach((childSnapshot) => {
-//     expenses.push({
-//       ...childSnapshot.val(),
-//       id: childSnapshot.key
-//     });
-//   });
-//   return expenses;
-// }
-// expenses.map((expense) => {
-//   database.ref('expenses').push(expense);
-// });
+const updateExpenses = (snapshot) => {
+  const expenses = [];
+  snapshot.forEach((childSnapshot) => {
+    expenses.push({
+      ...childSnapshot.val(),
+      id: childSnapshot.key
+    });
+  });
+  return expenses;
+}
+expenses.map((expense) => {
+  database.ref('expenses').push(expense);
+});
 
 // const id = database.ref('notes').push({
 //   title: 'to do',
